@@ -1,0 +1,38 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: voicereply-ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    environment:
+      OLLAMA_KEEP_ALIVE: "10m"
+      OLLAMA_HOST: "0.0.0.0:11434"
+    restart: unless-stopped
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: voicereply-searxng
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./local-runtime/searxng-settings.yml:/etc/searxng/settings.yml:ro
+    environment:
+      SEARXNG_BASE_URL: "http://localhost:8080/"
+    restart: unless-stopped
+
+  whisper:
+    image: ghcr.io/ggerganov/whisper.cpp:main
+    container_name: voicereply-whisper
+    profiles: ["whisper"]
+    ports:
+      - "127.0.0.1:8090:8080"
+    volumes:
+      - whisper-models:/models
+    command: ["--models", "/models", "--host", "0.0.0.0"]
+    restart: unless-stopped
+
+volumes:
+  ollama-models:
+  whisper-models:
