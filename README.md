@@ -22,17 +22,14 @@ WAgent acts as your personal, autonomous research agent. You simply paste a chao
 Unlike standard AI chatbots that rely on outdated training data and often hallucinate, WAgent is built on an **Evidence-First Reasoning Architecture**. It doesn't just guess; it proves.
 
 ---
-
-## 🧠 The Reasoning Architecture
+## 🧠 The Reasoning Architecture (Our "Secret Sauce")
 
 For this GenAI hackathon, WAgent is not just a simple LLM wrapper. It is a complex, autonomous reasoning engine. Here is how the pipeline works under the hood:
 
 1. **Intake & Task Decomposition (The Planner Agent):** When you ask, *"Find me the cheapest flight from Lagos to Guangzhou with their price tag,"* the planner agent breaks this down into actionable steps. It identifies the intent (flight search), the constraints (Lagos to Guangzhou, cheapest), and the required output (price tags).
-2. **Dynamic Tool Calling (The Executor Agent):** Based on the decomposed task, the system routes the query to specific tools (e.g., web scrapers, flight APIs, local market directories). It retrieves live data rather than relying on pre-trained knowledge.
+2. **Dynamic Tool Calling (The Executor Agent + Nightshift API):** Based on the decomposed task, the system routes the query to specific tools. **Crucially, we integrated the Meterless Nightshift API here.** Because our agents need to scrape multiple fragmented websites simultaneously to compare live prices, standard API rate limits were a bottleneck. The Meterless Nightshift API allows our Executor Agent to perform high-volume, unmetered, asynchronous data retrieval without throttling.
 3. **Constraint Evaluation & Synthesis (The Evaluator Agent):** This is where the reasoning happens. The agent scores the retrieved data against the user's prioritized constraints (e.g., `Cheapest total`, `Best rated`, `Fastest`). 
 4. **Explainable Output (Chain of Thought):** The final output isn't just a link. It is a synthesized report that explains *why* an option is the best choice, citing the live sources it found.
-
-*Note for Judges: Check out the [`AGENTS.md`](./AGENTS.md) file in this repository to see our exact prompt architectures, agent personas, and system constraints.*
 
 <img width="1199" height="4319" alt="deepseek_mermaid_20261027_496a0d" src="https://github.com/user-attachments/assets/034ffe17-b06d-4f3f-bbb7-6f9f447dc17d" />
 
@@ -48,6 +45,12 @@ For this GenAI hackathon, WAgent is not just a simple LLM wrapper. It is a compl
 *   ⏳ **Asynchronous Investigation Dashboard:** Long-running AI tasks are handled gracefully. Queries are marked as `pending` while the agent scrapes the web, and update to `confirmed` when the evidence is synthesized.
 
 ---
+
+## PREVIEW
+<img width="1130" height="757" alt="Screenshot from 2026-10-27 05-18-13" src="https://github.com/user-attachments/assets/713de51b-ff37-4d42-853d-8033bbc054e3" />
+<img width="1130" height="757" alt="Screenshot from 2026-10-27 05-18-27" src="https://github.com/user-attachments/assets/ac1ded31-17d7-4b83-8297-709a71cc1bb9" />
+<img width="1130" height="757" alt="Screenshot from 2026-10-27 05-18-32" src="https://github.com/user-attachments/assets/dad0894a-7917-40ad-b42a-5ac4d74ee3d0" />
+
 
 ## 🏗️ Technology Stack
 
