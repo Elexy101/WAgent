@@ -19,7 +19,7 @@ We waste hours jumping between different websites, reading endless reviews, and 
 
 WAgent acts as your personal, autonomous research agent. You simply paste a chaotic message from a friend or record a voice note. The AI then decomposes your request, scours live data sources across the web, evaluates the findings based on your priorities (cheapest, fastest, best rated), and presents a **clear answer, with the evidence and reasoning behind it.**
 
-Unlike standard AI chatbots that rely on outdated training data and often hallucinate, WAgent is built on an **Evidence-First Reasoning Architecture**. It doesn't just guess; it proves.
+Unlike standard AI chatbots that rely on outdated training data and often hallucinate, WAgent is built on an **Evidence-First Reasoning Architecture**. It does not just guess; it proves.
 
 ---
 ## 🧠 The Reasoning Architecture (Our "Secret Sauce")
@@ -41,7 +41,7 @@ For this GenAI hackathon, WAgent is not just a simple LLM wrapper. It is a compl
 *   🗣️ **Multimodal Input:** Paste a text message or seamlessly upload a voice note. The system handles Speech-to-Text transcription before feeding the prompt into the reasoning engine.
 *   🛡️ **Human-in-the-Loop (HITL):** The AI explicitly states, *"You review the sources and confirm before any booking or order link opens."* This ensures the user has the final say, preventing hallucinated bookings.
 *   📊 **Prioritization Engine:** Tailor the AI's reasoning to your specific needs with a single click: `Cheapest total`, `Best rated`, `Fastest`, or `Best balance`.
-*   📍 **Hyper-Localized Intelligence:** Optimized for fragmented markets. The architecture is designed to handle complex, localized queries (e.g., comparing specific grocery prices in Market Square Port Harcourt vs. Lagos).
+*   📍 **HyperLocalized Intelligence:** Optimized for fragmented markets. The architecture is designed to handle complex, localized queries (e.g comparing specific grocery prices in Market Square Port Harcourt vs. Lagos).
 *   ⏳ **Asynchronous Investigation Dashboard:** Long-running AI tasks are handled gracefully. Queries are marked as `pending` while the agent scrapes the web, and update to `confirmed` when the evidence is synthesized.
 
 ---
