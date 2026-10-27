@@ -31,7 +31,7 @@ For this GenAI hackathon, WAgent is not just a simple LLM wrapper. It is a compl
 3. **Constraint Evaluation & Synthesis (The Evaluator Agent):** This is where the reasoning happens. The agent scores the retrieved data against the user's prioritized constraints (e.g., `Cheapest total`, `Best rated`, `Fastest`). 
 4. **Explainable Output (Chain of Thought):** The final output isn't just a link. It is a synthesized report that explains *why* an option is the best choice, citing the live sources it found.
 
-<img width="1199" height="4319" alt="deepseek_mermaid_20261027_496a0d" src="https://github.com/user-attachments/assets/034ffe17-b06d-4f3f-bbb7-6f9f447dc17d" />
+<img width="1130" height="757" alt="Screenshot from 2026-10-27 05-18-13" src="https://github.com/user-attachments/assets/1eab1a3f-db9a-4b6a-9043-7bd8072b733d" />
 
 
 ---
